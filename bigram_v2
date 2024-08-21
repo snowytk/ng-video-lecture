@@ -135,6 +135,12 @@ print(loss)
 
 print(decode(m.generate(idx = torch.zeros((1, 1), dtype=torch.long), max_new_tokens=100)[0].tolist()))
 
+
+a = m.generate(idx = xb, max_new_tokens=100).tolist()
+for list in a :
+  print(decode(list))
+  print('\n')
+
 # create a PyTorch optimizer
 optimizer = torch.optim.AdamW(m.parameters(), lr=1e-3)
 
